@@ -1,0 +1,42 @@
+{
+  "name": "create-react-swc-app",
+  "version": "1.0.0",
+  "description": "terminal cli for swc-react-template",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build:bin": "npx swc ./source -d bin && npm link"
+  },
+  "bin": {
+    "create-react-swc-app": "./bin/index.js"
+  },
+  "keywords": [
+    "cli",
+    "swc",
+    "react",
+    "swc-react-template"
+  ],
+  "author": "tohsaka888",
+  "license": "MIT",
+  "devDependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.3.22",
+    "@types/node": "^18.11.13"
+  },
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "commander": "^9.4.1",
+    "download-git-repo": "^3.0.2",
+    "inquirer": "^9.1.4",
+    "ora": "^6.1.2",
+    "shelljs": "^0.8.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tohsaka888/create-react-swc-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tohsaka888/create-react-swc-app/issues"
+  },
+  "homepage": "https://github.com/tohsaka888/create-react-swc-app"
+}
