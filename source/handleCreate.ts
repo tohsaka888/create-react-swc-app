@@ -13,9 +13,6 @@ type Params = {
 };
 
 const handleCreate = (params: Params, options) => {
-  if (params.option) {
-    params.option = { javascript: true };
-  }
   if (!params.name) {
     inquirer
       // 用户交互
@@ -33,13 +30,19 @@ const handleCreate = (params: Params, options) => {
         },
       ])
       .then((answers) => {
-        createTemplate({ name: answers.name });
+        const language = answers.template || "javascript";
+        createTemplate({ name: answers.name, language: language });
       })
       .catch((error) => {
         console.error(error);
       });
   } else {
-    createTemplate({ name: params.name });
+    const language =
+      Object.keys(params.option).length === 0
+        ? "javascript"
+        : (Object.keys(params.option)[0] as "javascript" | "typescript");
+
+    createTemplate({ name: params.name, language });
   }
 };
 

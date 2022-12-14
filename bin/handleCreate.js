@@ -1,11 +1,6 @@
 import inquirer from "inquirer";
 import createTemplate from "./createTemplate.js";
 const handleCreate = (params, options)=>{
-    if (params.option) {
-        params.option = {
-            javascript: true
-        };
-    }
     if (!params.name) {
         inquirer// 用户交互
         .prompt([
@@ -24,15 +19,19 @@ const handleCreate = (params, options)=>{
                 ]
             }
         ]).then((answers)=>{
+            const language = answers.template || "javascript";
             createTemplate({
-                name: answers.name
+                name: answers.name,
+                language: language
             });
         }).catch((error)=>{
             console.error(error);
         });
     } else {
+        const language = Object.keys(params.option).length === 0 ? "javascript" : Object.keys(params.option)[0];
         createTemplate({
-            name: params.name
+            name: params.name,
+            language
         });
     }
 };

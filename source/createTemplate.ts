@@ -6,16 +6,17 @@ import inquirer from "inquirer";
 
 type Props = {
   name: string;
+  language: "javascript" | "typescript";
 };
 
-function createTemplate({ name }: Props) {
+function createTemplate({ name, language }: Props) {
   const chalk = new Chalk({ level: 3 });
   console.log(chalk.cyan(`⚛️   React With SWC  ⚛️`));
 
   const progress = ora();
   progress.start(`create ${chalk.green(name)}, downloading template...\n`);
   download(
-    "direct:https://github.com/tohsaka888/swc-react-template.git",
+    `direct:https://github.com/tohsaka888/swc-react-template.git#${language}`,
     name,
     {
       clone: true,

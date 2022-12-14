@@ -3,14 +3,14 @@ import download from "download-git-repo";
 import ora from "ora";
 import shell from "shelljs";
 import inquirer from "inquirer";
-function createTemplate({ name  }) {
+function createTemplate({ name , language  }) {
     const chalk = new Chalk({
         level: 3
     });
     console.log(chalk.cyan(`⚛️   React With SWC  ⚛️`));
     const progress = ora();
     progress.start(`create ${chalk.green(name)}, downloading template...\n`);
-    download("direct:https://github.com/tohsaka888/swc-react-template.git", name, {
+    download(`direct:https://github.com/tohsaka888/swc-react-template.git#${language}`, name, {
         clone: true
     }, (error)=>{
         if (error) {
