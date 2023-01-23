@@ -15,7 +15,8 @@ const handleCreate = (params, options)=>{
                 message: "🤔 choose a template",
                 choices: [
                     "JavaScript",
-                    "TypeScript"
+                    "TypeScript",
+                    "module"
                 ]
             }
         ]).then((answers)=>{

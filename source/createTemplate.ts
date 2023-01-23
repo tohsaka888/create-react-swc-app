@@ -17,8 +17,8 @@ function createTemplate({ name, language }: Props) {
   const progress = ora();
   progress.start(`create ${chalk.green(name)}, downloading template...\n`);
   download(
-    language === "module"
-      ? `direct:https://github.com/tohsaka888/swc-react-template.git#${language}`
+    language !== "module"
+      ? `direct:https://github.com/tohsaka888/swc-react-template.git#${language.toLowerCase()}`
       : `direct:https://github.com/tohsaka888/react-swc-module-template.git#master`,
     name,
     {
