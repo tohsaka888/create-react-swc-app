@@ -1,5 +1,6 @@
 import inquirer from "inquirer";
 import createTemplate from "./createTemplate.js";
+import { ModuleType } from "./index.js";
 
 type Option =
   | {
@@ -26,7 +27,7 @@ const handleCreate = (params: Params, options) => {
           type: "list",
           name: "template",
           message: "🤔 choose a template",
-          choices: ["JavaScript", "TypeScript"],
+          choices: ["JavaScript", "TypeScript", "module"],
         },
       ])
       .then((answers) => {
@@ -40,7 +41,7 @@ const handleCreate = (params: Params, options) => {
     const language =
       Object.keys(params.option).length === 0
         ? "javascript"
-        : (Object.keys(params.option)[0] as "javascript" | "typescript");
+        : (Object.keys(params.option)[0] as ModuleType);
 
     createTemplate({ name: params.name, language });
   }

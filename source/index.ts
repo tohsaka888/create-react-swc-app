@@ -2,6 +2,8 @@
 import { Command } from "commander";
 import handleCreate from "./handleCreate.js";
 
+export type ModuleType = "javascript" | "typescript" | "module";
+
 const program = new Command();
 
 program

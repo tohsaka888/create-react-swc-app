@@ -3,10 +3,11 @@ import download from "download-git-repo";
 import ora from "ora";
 import shell from "shelljs";
 import inquirer from "inquirer";
+import { ModuleType } from "./index.js";
 
 type Props = {
   name: string;
-  language: "javascript" | "typescript";
+  language: ModuleType;
 };
 
 function createTemplate({ name, language }: Props) {
@@ -16,7 +17,9 @@ function createTemplate({ name, language }: Props) {
   const progress = ora();
   progress.start(`create ${chalk.green(name)}, downloading template...\n`);
   download(
-    `direct:https://github.com/tohsaka888/swc-react-template.git#${language}`,
+    language === "module"
+      ? `direct:https://github.com/tohsaka888/swc-react-template.git#${language}`
+      : `direct:https://github.com/tohsaka888/react-swc-module-template.git#master`,
     name,
     {
       clone: true,
