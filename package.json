@@ -1,6 +1,6 @@
 {
   "name": "create-react-swc-app",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "terminal cli for swc-react-template",
   "main": "index.js",
   "type": "module",
